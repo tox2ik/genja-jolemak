@@ -17,3 +17,8 @@ In this repo:
 
 - A couple of scripts to set up an exotic keyboard layout in live-CD.
 - jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
+
+
+Get the layout
+--------------
+wget http://tinyurl.com/p9cw7lz -O- > /usr/share/X11/xkb/symbols/genja 

@@ -2,3 +2,5 @@
 
 XKB_SYMBOLS=
 
+localectl set-x11-keymap genja
+localectl set-keymap  genja
