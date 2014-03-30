@@ -2,10 +2,16 @@ X jolemak layot
 ===============
 
 Colemak layout with minor alterations.  
+- special chars in original US layot positions.
+- q <-> j
+- s <-> s
+- \; -> o -> y -> ;
 
-    j w f p g q l u o y [ ] \
-     a s r t d h n e i ; '
-      z x c v b k m , . /
+layout:
+
+     j w f p g q l u o y [ ] \
+      a s r t d h n e i ; '
+       z x c v b k m , . /
 
 In this repo:
 
