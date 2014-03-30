@@ -1,7 +1,13 @@
-X jolemak layot (based on colemak)
-==================================
+X jolemak layot 
+===============
+
+Colemak layout with minor alterations.  
+
+    j w f p g q l u o y [ ] \
+     a s r t d h n e i ; '
+      z x c v b k m , . /
 
 In this repo:
 
-A couple of scripts and files to set up an exotic keyboard layout a live-CD.
-jolemak for X.org (xkb symbols based on us/colemak)
+- A couple of scripts to set up an exotic keyboard layout in live-CD.
+- jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
