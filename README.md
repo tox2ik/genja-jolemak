@@ -1,12 +1,19 @@
-X jolemak layout 
-===============
+# X jolemak layout
 
-Colemak layout with minor alterations.  
+Colemak layout with minor alterations.
 
 - special chars in original US-layout positions.
 - q <-> j
-- s <-> s
+- r <-> s
 - \; -> o -> y -> ;
+- *caps backspace* replaced by *left-control*
+
+additionally, there are 'hidden keys'.
+
+     alt-gr+(@) -> œ
+
+     where @ is input and æ is the hidden key.
+
 
 layout, jolemak:
 
@@ -15,6 +22,8 @@ layout, jolemak:
         a s r t d h n e i ; '
          z x c v b k m , . /
 
+     (@, æ) = {  wå, aå, ;æ, 'ø, [«, ]», eé, ... }
+
 layout, jolerus:
 
     ` 1 2 3 4 5 6 7 8 9 0 - =
@@ -22,21 +31,15 @@ layout, jolerus:
         а с р т д х н е и ; '
          з ж ц в б к м , . /
 
-    additionally, there are 'hidden keys' 
+     @ = { ф, у, ш, ,, ., и, е }
+     œ = { э, ю, щ, ь, ъ, й, ё }
 
-            alt-gr+(@) -> œ
+## In this repo
 
-     where @ = { ф, у, ш, ,, ., и, е }
-       and œ = { э, ю, щ, ь, ъ, й, ё }
-
-Also in this repo
------------------
-
+- readme with copy paste instructions to set up an exotic layout from a live-CD
 - jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
 - jolerus (based on jolemak) russian phonetic mapping of jolemak
 - virtual terminal key map
-- A couple of commands to set up an exotic keyboard layout in a live-CD.
-
 
 ## Using the layout
 
@@ -44,17 +47,23 @@ todo: add layout for grub, kernel initramfs
 
 ### X.org
 
-    $ setxkbmap genja jolemak
+    $ setxkbmap genja [jolemak]
     $ setxkbmap genja jolerus
 
-#### Virtual terminal
+### Virtual terminal
 
 	$ loadkeys /usr/share/keymaps/i386/colemak/genja.map
 
 ## Installing the layout
-    
-    # link to https://raw.githubusercontent.com
-    #     /tox2ik/genja-jolemak/master/usr/share/X11/xkb/symbols/genja 
 
-    wget http://tinyurl.com/p9cw7lz -O- > /usr/share/X11/xkb/symbols/genja
-    curl -L -k http://tinyurl.com/p9cw7lz > /usr/share/X11/xkb/symbols/genja
+    http://tinyurl.com/p9cw7lz
+    =
+    link to https://raw.githubusercontent.com
+        /tox2ik/genja-jolemak/master/usr/share/X11/xkb/symbols/genja
+
+copy & paste:
+
+    (curl -L -k http://tinyurl.com/p9cw7lz ||
+        wget http://tinyurl.com/p9cw7lz -O-) > /usr/share/X11/xkb/symbols/genja
+    xset r rate 290 46
+    setxkbmap genja -option terminate:ctrl_alt_bksp

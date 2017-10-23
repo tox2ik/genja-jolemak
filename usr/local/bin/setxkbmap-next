@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+
+current=$(setxkbmap -query | grep -e layout -e variant)
+
+if [[ $current = *genja*jolerus ]];then setxkbmap genja jolemak;
+elif [[ $current = *genja*jolemak ]] || [[ $current = *genja* ]] ;then setxkbmap genja jolerus;
+else setxkbmap genja
+fi
+
+current=$(setxkbmap -query | grep -e layout)
+
+if ! [[ $current = *genja* ]];then setxkbmap us; fi
