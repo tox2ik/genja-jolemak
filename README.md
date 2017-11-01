@@ -67,3 +67,9 @@ copy & paste:
         wget http://tinyurl.com/p9cw7lz -O-) > /usr/share/X11/xkb/symbols/genja
     xset r rate 290 46
     setxkbmap genja -option terminate:ctrl_alt_bksp
+
+### systemd
+
+    localectl set-x11-keymap genja
+    localectl set-keymap  genja
+
