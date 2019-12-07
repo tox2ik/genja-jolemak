@@ -1,6 +1,6 @@
 # X jolemak layout
 
-Colemak layout with minor alterations.
+The layout is based on Colemak, with some alterations;
 
 - special chars in original US-layout positions.
 - q <-> j
@@ -8,23 +8,38 @@ Colemak layout with minor alterations.
 - \; -> o -> y -> ;
 - *caps backspace* replaced by *left-control*
 
-additionally, there are 'hidden keys'.
+## In this repo
+
+- readme with copy paste instructions to set up an exotic layout (from a live-CD)
+- jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
+- jolerus (based on jolemak) russian phonetic mapping of jolemak
+- jolemak.klc source file for Microsoft Keyboard Layout Creator
+- virtual console key map
+
+The jolemak X layout has  'hidden keys'.
 
      alt-gr+(@) -> œ
 
-     where @ is input and æ is the hidden key.
+where @ is input and æ is the hidden key.
 
 
-layout, jolemak:
+### layout, jolemak:
 
     ` 1 2 3 4 5 6 7 8 9 0 - =
        j w f p g q l u o y [ ] \
         a s r t d h n e i ; '
          z x c v b k m , . /
 
-     (@, æ) = {  wå, aå, ;æ, 'ø, [«, ]», eé, ... }
+     (@, æ) = { yå, aä, ;æ, 'ø, [«, ]», sß, oö, uü, ... }
 
-layout, jolerus:
+- ![jolemak](/image/jolemak.jpg "Jolemak")
+
+With <kdb>Alt-Gr</kbd>: 
+
+- ![jolemak altgr](/image/jolemak-AltGr.jpg "Jolemak Alternative Graph")
+
+
+### layout, jolerus:
 
     ` 1 2 3 4 5 6 7 8 9 0 - =
        я ш ф п г ч л у о ы [ ] \
@@ -34,25 +49,6 @@ layout, jolerus:
      @ = { ф, у, ш, ,, ., и, е }
      œ = { э, ю, щ, ь, ъ, й, ё }
 
-## In this repo
-
-- readme with copy paste instructions to set up an exotic layout from a live-CD
-- jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
-- jolerus (based on jolemak) russian phonetic mapping of jolemak
-- virtual terminal key map
-
-## Using the layout
-
-todo: add layout for grub, kernel initramfs
-
-### X.org
-
-    $ setxkbmap genja [jolemak]
-    $ setxkbmap genja jolerus
-
-### Virtual terminal
-
-	$ loadkeys /usr/share/keymaps/i386/colemak/genja.map
 
 ## Installing the layout
 
@@ -68,8 +64,27 @@ copy & paste:
     xset r rate 290 46
     setxkbmap genja -option terminate:ctrl_alt_bksp
 
-### systemd
+## Using the layout
 
-    localectl set-x11-keymap genja
-    localectl set-keymap  genja
+todo: add layout for grub2
 
+### X.org
+
+    $ setxkbmap genja [jolemak]
+    $ setxkbmap genja jolerus
+
+### Virtual console
+
+	$ loadkeys /usr/share/keymaps/i386/colemak/genja.map
+
+### Systemd
+
+    $ localectl set-x11-keymap genja
+    $ localectl set-keymap genja
+
+### Initramfs
+
+Add the binary layout to the ram-fs and load it with busybox `loadkmap`.
+
+    $ loadkeys -b genja.map > initramfs-overlay/jolemak.bmap
+    $ loadkmap < jolemak.bmap
