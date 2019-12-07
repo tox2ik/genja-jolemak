@@ -1,5 +1,5 @@
 # jolemak.kmap for Linux console.
-# 2014-03-30 Jaroslav Rakhmatoullin. Public domain.
+# 2014-2019 © Jaroslav Rakhmatoullin. Public domain.
 alt_is_meta
 charset "iso-8859-15"  # use a ISO-8859-15 font, e.g.: consolechars -f lat9v-14
 keymaps 0-12
