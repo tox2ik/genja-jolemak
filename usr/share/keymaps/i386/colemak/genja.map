@@ -58,7 +58,7 @@ keycode  51 =          comma          less     dead_cedilla        asciitilde
 keycode  52 =         period       greater       asciitilde        asciitilde           	#     dead_abovedot        asciitilde
 keycode  53 =          slash      question     questiondown        asciitilde    Delete
                                                                              
-keycode  58 =      BackSpace     BackSpace        BackSpace         BackSpace
+keycode  58 =      Control     Control        Control         Control
 keycode  86 =          minus    underscore       asciitilde        asciitilde 	 Control_underscore          #            endash            emdash
 keycode  57 =          space         space            space      nobreakspace    nul
 
