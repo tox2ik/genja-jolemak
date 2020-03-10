@@ -104,3 +104,7 @@ Add the binary layout to the ram-fs and load it with busybox `loadkmap`.
 
     $ loadkeys -b genja.map > initramfs-overlay/jolemak.bmap
     $ loadkmap < jolemak.bmap
+
+## Mac OS
+
+Use `Ukelele_3.30.dmg` to create or modify layouts
