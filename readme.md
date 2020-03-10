@@ -1,11 +1,40 @@
 # X jolemak layout
 
+## Installing the layout
+
+copy & paste from a live-cd:
+
+    (curl -L -k http://tinyurl.com/p9cw7lz ||
+        wget http://tinyurl.com/p9cw7lz -O-) ||
+		sudo tee /usr/share/X11/xkb/symbols/genja | wc -c 
+    xset r rate 290 46
+    setxkbmap genja -option terminate:ctrl_alt_bksp
+
+the xorg-map file:
+
+    $ curl http://tinyurl.com/p9cw7lz
+    =
+    link to https://raw.githubusercontent.com
+        /tox2ik/genja-jolemak/master/usr/share/X11/xkb/symbols/genja
+
+
+### put this on whe wasted / unaligned partition
+
+	todo: base 64
+
+
+
+## about
+
 The layout is based on Colemak, with some alterations;
 
-- special chars in original US-layout positions.
-- q <-> j
-- r <-> s
-- \; -> o -> y -> ;
+- special chars ([], {}, ()) in original US-layout positions
+  - this was made for programmers by programmers before 1980
+  - it remains relevant
+- alterations to semicolon, wovels & consensenats:
+  - q <-> j
+  - r <-> s
+  - \; -> o -> y -> ;
 - *caps backspace* replaced by *left-control*
 
 ## In this repo
@@ -50,19 +79,6 @@ With <kdb>Alt-Gr</kbd>:
      œ = { э, ю, щ, ь, ъ, й, ё }
 
 
-## Installing the layout
-
-    http://tinyurl.com/p9cw7lz
-    =
-    link to https://raw.githubusercontent.com
-        /tox2ik/genja-jolemak/master/usr/share/X11/xkb/symbols/genja
-
-copy & paste:
-
-    (curl -L -k http://tinyurl.com/p9cw7lz ||
-        wget http://tinyurl.com/p9cw7lz -O-) > /usr/share/X11/xkb/symbols/genja
-    xset r rate 290 46
-    setxkbmap genja -option terminate:ctrl_alt_bksp
 
 ## Using the layout
 
