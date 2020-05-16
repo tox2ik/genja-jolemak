@@ -107,4 +107,5 @@ Add the binary layout to the ram-fs and load it with busybox `loadkmap`.
 
 ## Mac OS
 
-Use `Ukelele_3.30.dmg` to create or modify layouts
+Use `Ukelele_3.30.dmg` to create or modify layouts on mac os
+
