@@ -4,11 +4,14 @@
 
 copy & paste from a live-cd:
 
-    (curl -L -k http://tinyurl.com/p9cw7lz ||
-        wget http://tinyurl.com/p9cw7lz -O-) ||
-		sudo tee /usr/share/X11/xkb/symbols/genja | wc -c 
+    if [[ ! -f /usr/share/X11/xkb/symbols/genja ]]; then
+        (curl -L -k http://tinyurl.com/p9cw7lz \
+            || wget http://tinyurl.com/p9cw7lz -O-) \
+            | sudo tee /usr/share/X11/xkb/symbols/genja | wc -c
+    fi
     xset r rate 290 46
     setxkbmap genja -option terminate:ctrl_alt_bksp
+
 
 the xorg-map file:
 
@@ -16,13 +19,6 @@ the xorg-map file:
     =
     link to https://raw.githubusercontent.com
         /tox2ik/genja-jolemak/master/usr/share/X11/xkb/symbols/genja
-
-
-### put this on whe wasted / unaligned partition
-
-	todo: base 64
-
-
 
 ## about
 
