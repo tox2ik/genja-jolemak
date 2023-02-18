@@ -1,4 +1,27 @@
-# X jolemak layout
+# Jolemak Keyboard layout
+
+Essentially, this is a fork of the the [colemak layout](https://colemak.com),
+with some minor alterations.
+
+
+- special chars ([], {}, ()) reverted to original US-layout positions
+  - i believe those positions were created by programes for programmers in the 1980s
+  - this is vastly superior to any european layout I have used for those keys
+- caps
+    - backspace -> left-control
+- alterations to semicolon, wovels & consensenats:
+    - q <-> j
+    - r <-> s
+    - \; -> o -> y -> ;
+
+## In this repo
+
+- readme with copy paste instructions to set up an exotic layout (from a live-CD)
+- jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
+- jolerus (based on jolemak) russian phonetic mapping of jolemak
+- jolemak.klc source file for Microsoft Keyboard Layout Creator
+- binary installer for windows 7..11 (and later? could work on xp too)
+- virtual console key map
 
 ## Installing the layout
 
@@ -20,33 +43,6 @@ the xorg-map file:
     link to https://raw.githubusercontent.com
         /tox2ik/genja-jolemak/master/usr/share/X11/xkb/symbols/genja
 
-## about
-
-The layout is based on Colemak, with some alterations;
-
-- special chars ([], {}, ()) in original US-layout positions
-  - this was made for programmers by programmers before 1980
-  - it remains relevant
-- alterations to semicolon, wovels & consensenats:
-  - q <-> j
-  - r <-> s
-  - \; -> o -> y -> ;
-- *caps backspace* replaced by *left-control*
-
-## In this repo
-
-- readme with copy paste instructions to set up an exotic layout (from a live-CD)
-- jolemak (based on colemak) for X.org (xkb symbols based on us/colemak)
-- jolerus (based on jolemak) russian phonetic mapping of jolemak
-- jolemak.klc source file for Microsoft Keyboard Layout Creator
-- virtual console key map
-
-The jolemak X layout has  'hidden keys'.
-
-     alt-gr+(@) -> œ
-
-where @ is input and æ is the hidden key.
-
 
 ### layout, jolemak:
 
@@ -63,6 +59,12 @@ With <kdb>Alt-Gr</kbd>:
 
 - ![jolemak altgr](/image/jolemak-AltGr.jpg "Jolemak Alternative Graph")
 
+additionally, there are 'hidden keys'.
+
+     alt-gr+(@) -> œ
+
+     where @ is input and æ is the hidden key.
+
 
 ### layout, jolerus:
 
@@ -74,6 +76,12 @@ With <kdb>Alt-Gr</kbd>:
      @ = { ф, у, ш, ,, ., и, е }
      œ = { э, ю, щ, ь, ъ, й, ё }
 
+
+### no root
+
+use this when you cantwrite to /usr/share/X11/xkb
+
+    xkbcomp -I$HOME/.xkb $HOME/.xkb/xkb-input $DISPLAY
 
 
 ## Using the layout
@@ -101,7 +109,12 @@ Add the binary layout to the ram-fs and load it with busybox `loadkmap`.
     $ loadkeys -b genja.map > initramfs-overlay/jolemak.bmap
     $ loadkmap < jolemak.bmap
 
-## Mac OS
+### Windows
+
+Install from the provided binary and chose the "us - jolemak" variety in settings - regional settings.
+
+    
+### Mac OS
 
 Use `Ukelele_3.30.dmg` to create or modify layouts on mac os
 
