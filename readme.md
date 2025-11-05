@@ -27,6 +27,9 @@ with some minor alterations.
 
 copy & paste from a live-cd:
 
+  
+    curl -skL https://raw.githubusercontent.com/tox2ik/genja-jolemak/refs/heads/master/install.sh | bash -x
+
     if [[ ! -f /usr/share/X11/xkb/symbols/genja ]]; then
         (curl -L -k http://tinyurl.com/p9cw7lz \
             || wget http://tinyurl.com/p9cw7lz -O-) \
