@@ -149,8 +149,9 @@ out from the typed letter itself.
 ## Proposed changes (option 1)
 
 The changes are made in `opt/jolemak/jolemak.2026.klc`, a copy of
-`jolemak.2019.klc` (left as is). It also bumps `VERSION` to 1.1 and the
-copyright to 2013-2026. Not built or tested yet.
+`jolemak.2019.klc` (left as is). It also bumps the copyright to 2013-2026.
+`VERSION` stays 1.0 (MSKLC resets it on every save); the new name
+`jolemak3` (section 5) tells the builds apart. Built, not tested yet.
 
 ### 1. Ctrl column
 
@@ -190,9 +191,16 @@ Columns: SC VK Cap, then shift states 0 1 2 6 7 (comments dropped).
 ```
 
 The other letters (A S H O W Z X C V B M) are on their QWERTY positions, so
-the VK fallback already gives the right character. Filling their Ctrl
-column too (and ^@ ^^ ^_ on Ctrl+Shift+2, Ctrl+Shift+6, Ctrl+-) is
-proposed, pending review, so the layout does not depend on the fallback.
+the VK fallback already gives the right character. Their Ctrl and
+Shift+Ctrl columns are filled in anyway, so the layout does not depend on
+the fallback. Like the US layout, Ctrl+Shift+2, Ctrl+Shift+6 and
+Ctrl+Shift+- give ^@ (U+0000), ^^ (U+001E) and ^_ (U+001F).
+
+MSKLC's Validate Layout warns that these control characters are
+"redundant" and "defined more than once" (Ctrl and Shift+Ctrl), and that
+Caps Lock is set between Shift+Ctrl and Shift+Ctrl+Alt on A I O P. These
+warnings are expected: the Ctrl codes are the fix, Shift+Ctrl copies Ctrl
+on purpose, and Caps Lock never changes the Ctrl states.
 
 ### 2. Ctrl+Shift
 
@@ -241,7 +249,8 @@ AltGr only), so Caps Lock + AltGr gives Ø Æ and `;` `'` are unchanged.
 - `make msklc` installs MSKLC 1.4. It is not on winget; the installer is
   downloaded from Microsoft to `opt/msklc/` (gitignored) and its signature
   checked.
-- MSKLC: open `jolemak.2026.klc`, Project > Build DLL and Setup Package.
+- MSKLC: open `jolemak.2026.klc`, Project > Build DLL and Setup Package
+  (steps in [readme.build-with-msklc.md](readme.build-with-msklc.md)).
   Package it as `winders/jolemak-2026.zip` next to the 2019 one (it holds
   `jolemak3_amd64.msi`).
 - Because of the new name, the 2026 layout installs next to the 2019 one
